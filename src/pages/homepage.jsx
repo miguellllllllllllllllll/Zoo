@@ -1,6 +1,7 @@
 import "../App.css";
 import Navbar from "../components/navbar";
 import { Button } from "@mui/material";
+import { Box } from "@mui/material";
 
 function Homepage() {
   return (
@@ -9,7 +10,9 @@ function Homepage() {
         <Navbar />
       </header>
       <main>
-      <Button variant="contained" sx={{ m: "20rem auto" }}>Tickets bestellen</Button>
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Button variant="contained">Tickets bestellen</Button>
+        </Box>
       </main>
     </>
   );
