@@ -1,5 +1,5 @@
 import "../App.css";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import { Button } from "@mui/material";
 import { Box } from "@mui/material";
 
