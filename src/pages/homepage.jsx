@@ -2,7 +2,7 @@ import "../App.css";
 import Navbar from "../components/Navbar";
 import { Button } from "@mui/material";
 import { Box } from "@mui/material";
-import Main_Picture from "../assets/Homepage_Picture.jpg";
+import Main_Picture from "../assets/Homepage.jpg";
 
 function Homepage() {
   return (
@@ -11,12 +11,19 @@ function Homepage() {
         <Navbar />
       </header>
       <main>
-        <img src="{$Main_Picture}" alt="" />
+        <Box
+          component="img"
+          sx={{
+            width:"100%"
+          }}
+          alt="..."
+          src={Main_Picture}
+        />
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
-            margin: "calc(100vh - 10vh) 0 0 0",
+            margin: "calc(20vh - 10vh) 0 0 0",
           }}
         >
           <Button variant="contained">Tickets bestellen</Button>
