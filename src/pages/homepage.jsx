@@ -11,22 +11,25 @@ function Homepage() {
         <Navbar />
       </header>
       <main>
-        <Box
-          component="img"
-          sx={{
-            width:"100%"
-          }}
-          alt="..."
-          src={Main_Picture}
-        />
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            margin: "calc(20vh - 10vh) 0 0 0",
-          }}
-        >
-          <Button variant="contained">Tickets bestellen</Button>
+        <Box sx={{ position: "relative" }}>
+          <Box
+            component="img"
+            sx={{
+              width: "100%",
+            }}
+            alt="..."
+            src={Main_Picture}
+          />
+          <h1>Herzlich Wilkommen</h1>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              margin: "calc(4% - 10%) 0 0 0",
+            }}
+          >
+            <Button variant="contained">Tickets bestellen</Button>
+          </Box>
         </Box>
       </main>
     </>
