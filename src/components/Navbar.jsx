@@ -20,12 +20,14 @@ import HomeIcon from "@mui/icons-material/Home";
 import PetsIcon from "@mui/icons-material/Pets";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
+import Datenschutz from "../pages/Datenschutz.jsx";
 
 const navItems = [
   { text: "Home", icon: <HomeIcon />, href: "/" },
   { text: "Tiere", icon: <PetsIcon />, href: "/tiere" },
   { text: "Fütterungszeiten", icon: <AccessTimeIcon />, href: "/zeiten" },
   { text: "Tickets", icon: <ConfirmationNumberIcon />, href: "/tickets" },
+  { text: "Datenschutz", icon: <Datenschutz />, href: "/datenschutz"}
 ];
 
 export default function ZooNavbar() {
