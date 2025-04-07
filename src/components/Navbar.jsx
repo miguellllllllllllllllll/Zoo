@@ -27,7 +27,7 @@ const navItems = [
   { text: "Tiere", icon: <PetsIcon />, href: "/tiere" },
   { text: "Fütterungszeiten", icon: <AccessTimeIcon />, href: "/zeiten" },
   { text: "Tickets", icon: <ConfirmationNumberIcon />, href: "/tickets" },
-  { text: "Datenschutz", icon: <Datenschutz />, href: "/"}
+  { text: "Datenschutz", icon: <Datenschutz />, href: "/datenschutz"}
 ];
 
 export default function ZooNavbar() {
