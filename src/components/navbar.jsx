@@ -1,29 +1,89 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
+import React from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Button,
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 
-export default function Navbar() {
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="absolute">
+import MenuIcon from "@mui/icons-material/Menu";
+import HomeIcon from "@mui/icons-material/Home";
+import PetsIcon from "@mui/icons-material/Pets";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
+
+const navItems = [
+  { text: "Home", icon: <HomeIcon />, href: "/" },
+  { text: "Tiere", icon: <PetsIcon />, href: "/tiere" },
+  { text: "Fütterungszeiten", icon: <AccessTimeIcon />, href: "/zeiten" },
+  { text: "Tickets", icon: <ConfirmationNumberIcon />, href: "/tickets" },
+];
+
+export default function ZooNavbar() {
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handleDrawerToggle = () => {
+    setDrawerOpen(!drawerOpen);
+  };
+
+  const drawer = (
+    <List>
+      {navItems.map((item) => (
+        <ListItem button component="a" href={item.href} key={item.text}>
+          <ListItemIcon>{item.icon}</ListItemIcon>
+          <ListItemText primary={item.text} />
+        </ListItem>
+      ))}
+    </List>
+  );
+
+  <>
+      <AppBar position="absolute" color="success">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          ></IconButton>
+          {isMobile && (
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={handleDrawerToggle}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Zoo
+            🦁 ZooApp
           </Typography>
-          <Button color="inherit">Login</Button>
+          {!isMobile &&
+            navItems.map((item) => (
+              <Button
+                key={item.text}
+                color="inherit"
+                startIcon={item.icon}
+                href={item.href}
+              >
+                {item.text}
+              </Button>
+            ))}
         </Toolbar>
       </AppBar>
-    </Box>
+      <Drawer
+        anchor="left"
+        open={drawerOpen}
+        onClose={handleDrawerToggle}
+        sx={{ "& .MuiDrawer-paper": { width: 250 } }}
+      >
+        {drawer}
+      </Drawer>
+    </>
   );
 }
