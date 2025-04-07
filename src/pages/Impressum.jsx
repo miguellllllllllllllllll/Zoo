@@ -11,6 +11,7 @@ export default function () {
 			<p>
 				<a href="+41442542500">044 254 25 00</a>
 			</p>
+			<br />
 			<p>
 				<a href="zoo@zoo.ch">zoo@zoo.ch</a>
 			</p>
