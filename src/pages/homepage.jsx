@@ -28,7 +28,7 @@ function Homepage() {
               margin: "calc(4% - 10%) 0 0 0",
             }}
           >
-            <Button variant="contained">Tickets bestellen</Button>
+            <Button variant="contained" href="ticketkauf">Tickets bestellen</Button>
           </Box>
         </Box>
       </main>
