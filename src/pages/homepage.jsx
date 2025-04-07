@@ -1,5 +1,6 @@
 import "../App.css";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { Button } from "@mui/material";
 import { Box } from "@mui/material";
 import Main_Picture from "../assets/Homepage.jpg";
@@ -32,6 +33,9 @@ function Homepage() {
           </Box>
         </Box>
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }
