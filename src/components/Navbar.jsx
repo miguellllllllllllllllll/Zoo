@@ -12,6 +12,7 @@ import {
   ListItemText,
   useTheme,
   useMediaQuery,
+  Box,
 } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
@@ -48,7 +49,7 @@ export default function ZooNavbar() {
   );
 
   return (
-    <>
+    <Box sx={{ paddingTop: "64px" }}>
       <AppBar position="absolute" color="success">
         <Toolbar>
           {isMobile && (
@@ -85,6 +86,6 @@ export default function ZooNavbar() {
       >
         {drawer}
       </Drawer>
-    </>
+    </Box>
   );
 }
