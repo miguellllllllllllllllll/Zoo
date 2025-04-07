@@ -47,7 +47,8 @@ export default function ZooNavbar() {
     </List>
   );
 
-  <>
+  return (
+    <>
       <AppBar position="absolute" color="success">
         <Toolbar>
           {isMobile && (
