@@ -7,7 +7,7 @@ import Main_Picture from "../assets/Homepage.jpg";
 
 function Homepage() {
   return (
-    <>
+    <div style={{ height: "100%" }}>
       <header>
         <Navbar />
       </header>
@@ -36,7 +36,7 @@ function Homepage() {
       <footer>
         <Footer />
       </footer>
-    </>
+    </div>
   );
 }
 

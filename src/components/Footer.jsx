@@ -6,14 +6,17 @@ export default function Footer() {
     <>
       <Box
         sx={{
-          background: "#1976d2",
+          background: "#2e7d32",
           color: "white",
           position: "absolute",
           bottom: "0",
-          width: "100vw",
+          left: "0",
+          right: "0",
+          height: "3rem",
+          textAlign: "center",
         }}
       >
-        234
+        Footer
       </Box>
     </>
   );
