@@ -21,7 +21,7 @@ function Homepage() {
             alt="..."
             src={Main_Picture}
           />
-          <h1>Herzlich Wilkommen auf unserer Seite</h1>
+          <h1>Herzlich Wilkommen auf der inoffziellen Zoo Zürich Seite</h1>
           <Box
             sx={{
               display: "flex",
