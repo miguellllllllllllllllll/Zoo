@@ -2,19 +2,10 @@ body {
   overflow-x: hidden;
 }
 
-.homepage-text {
+h1 {
+  color: white;
   position: absolute;
   top: 10%;
-  max-width: 90vw;
-  margin: 0 2rem;
-  color: white;
-  background-color: #2e7d32;
-  border-radius: 25px;
-  opacity: 70%;
-  padding: 2rem;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 7);
-}
-
-.homepage-text > h1 {
-  text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
