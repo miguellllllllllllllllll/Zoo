@@ -13,32 +13,15 @@ function Homepage() {
       </header>
       <main>
         <Box sx={{ position: "relative" }}>
-          <div style={{ position: "relative" }}>
-            <Box
-              component="img"
-              sx={{
-                width: "100%",
-                opacity: "80%",
-              }}
-              alt="..."
-              src={Main_Picture}
-            />
-            <div className="homepage-text">
-              <h1>Herzlich Wilkommen auf der inoffziellen Zoo Zürich Seite</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                sed diam voluptua. At vero eos et accusam et justo duo dolores
-                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-                est Lorem ipsum dolor sit amet.
-              </p>
-            </div>
-          </div>
+          <Box
+            component="img"
+            sx={{
+              width: "100%",
+            }}
+            alt="..."
+            src={Main_Picture}
+          />
+          <h1>Herzlich Wilkommen auf unserer Seite</h1>
           <Box
             sx={{
               display: "flex",
