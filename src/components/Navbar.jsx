@@ -1,5 +1,6 @@
+import React, { useEffect, useState } from "react";
+import { useTheme, useMediaQuery } from "@mui/material";
 import { Outlet, Link } from "react-router-dom";
-import React from "react";
 import {
   AppBar,
   Toolbar,
@@ -11,8 +12,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  useTheme,
-  useMediaQuery,
   Box,
 } from "@mui/material";
 
@@ -24,6 +23,7 @@ import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import RuleIcon from "@mui/icons-material/Rule";
 import BookIcon from "@mui/icons-material/Book";
 
+// Navigationseinträge
 const navItems = [
   { text: "Home", icon: <HomeIcon />, href: "/" },
   { text: "Tiere", icon: <PetsIcon />, href: "/tiere" },
@@ -34,12 +34,29 @@ const navItems = [
 ];
 
 export default function ZooNavbar() {
-  const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    setIsLoggedIn(!!user);
+  }, []);
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setIsLoggedIn(false);
+    navigate("/login");
+  };
+
+  const handleLoginRedirect = () => {
+    navigate("/login");
   };
 
   const drawer = (
@@ -59,31 +76,27 @@ export default function ZooNavbar() {
         <AppBar position="absolute" color="success">
           <Toolbar>
             {isMobile && (
-              <IconButton
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                onClick={handleDrawerToggle}
-              >
-                <MenuIcon />
-              </IconButton>
-            )}
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              🦁 ZooApp
-            </Typography>
-            {!isMobile &&
-              navItems.map((item) => (
-                <Button
-                  key={item.text}
+              <Button>
+                <IconButton
+                  edge="start"
                   color="inherit"
-                  startIcon={item.icon}
-                  href={item.href}
-                >
-                  {item.text}
-                </Button>
-              ))}
+                  aria-label="menu"
+                  onClick={handleDrawerToggle}
+                />
+                {item.text}
+              </Button>
+            )}
+
+            <Button
+              color="inherit"
+              onClick={isLoggedIn ? handleLogout : handleLoginRedirect}
+              sx={{ marginLeft: 2 }}
+            >
+              {isLoggedIn ? "Logout" : "Login"}
+            </Button>
           </Toolbar>
         </AppBar>
+
         <Drawer
           anchor="left"
           open={drawerOpen}
@@ -93,8 +106,6 @@ export default function ZooNavbar() {
           {drawer}
         </Drawer>
       </Box>
-
-      <Outlet />
     </>
   );
 }
