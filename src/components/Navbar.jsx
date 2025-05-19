@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState } from "react";
 import { useTheme, useMediaQuery } from "@mui/material";
-import { Outlet, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -21,18 +20,16 @@ import HomeIcon from "@mui/icons-material/Home";
 import PetsIcon from "@mui/icons-material/Pets";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
-import { useNavigate } from "react-router-dom";
-import Datenschutz from "../pages/Datenschutz.jsx";
-import RuleIcon from "@mui/icons-material/Book";
+import PolicyIcon from "@mui/icons-material/Policy";
+import BookIcon from "@mui/icons-material/Book";
 
-// Navigationseinträge
 const navItems = [
   { text: "Home", icon: <HomeIcon />, href: "/" },
   { text: "Tiere", icon: <PetsIcon />, href: "/tiere" },
   { text: "Fütterungszeiten", icon: <AccessTimeIcon />, href: "/zeiten" },
   { text: "Tickets", icon: <ConfirmationNumberIcon />, href: "/tickets" },
-  { text: "Datenschutz", icon: <Datenschutz />, href: "/datenschutz" },
-  { text: "Impressum", icon: <RuleIcon />, href: "/impressum" },
+  { text: "Datenschutz", icon: <PolicyIcon />, href: "/datenschutz" },
+  { text: "Impressum", icon: <BookIcon />, href: "/impressum" },
 ];
 
 export default function ZooNavbar() {
@@ -64,7 +61,13 @@ export default function ZooNavbar() {
   const drawer = (
     <List>
       {navItems.map((item) => (
-        <ListItem button component="a" href={item.href} key={item.text}>
+        <ListItem
+          button
+          component={Link}
+          to={item.href}
+          key={item.text}
+          onClick={() => setDrawerOpen(false)}
+        >
           <ListItemIcon>{item.icon}</ListItemIcon>
           <ListItemText primary={item.text} />
         </ListItem>
@@ -84,28 +87,43 @@ export default function ZooNavbar() {
                 aria-label="menu"
                 onClick={handleDrawerToggle}
               >
-                {item.text}
-              </Button>
-            ))}
+                <MenuIcon />
+              </IconButton>
+            )}
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              🦁 ZooApp
+            </Typography>
+            {!isMobile &&
+              navItems.map((item) => (
+                <Button
+                  key={item.text}
+                  color="inherit"
+                  startIcon={item.icon}
+                  component={Link}
+                  to={item.href}
+                >
+                  {item.text}
+                </Button>
+              ))}
+            <Button
+              color="inherit"
+              onClick={isLoggedIn ? handleLogout : handleLoginRedirect}
+              sx={{ marginLeft: 2 }}
+            >
+              {isLoggedIn ? "Logout" : "Login"}
+            </Button>
+          </Toolbar>
+        </AppBar>
 
-          <Button
-            color="inherit"
-            onClick={isLoggedIn ? handleLogout : handleLoginRedirect}
-            sx={{ marginLeft: 2 }}
-          >
-            {isLoggedIn ? "Logout" : "Login"}
-          </Button>
-        </Toolbar>
-      </AppBar>
-
-      <Drawer
-        anchor="left"
-        open={drawerOpen}
-        onClose={handleDrawerToggle}
-        sx={{ "& .MuiDrawer-paper": { width: 250 } }}
-      >
-        {drawer}
-      </Drawer>
-    </Box>
+        <Drawer
+          anchor="left"
+          open={drawerOpen}
+          onClose={handleDrawerToggle}
+          sx={{ "& .MuiDrawer-paper": { width: 250 } }}
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+    </>
   );
 }
