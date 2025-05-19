@@ -13,20 +13,22 @@ import {
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { useNavigate } from "react-router-dom"; // <--- HINZUGEFÜGT
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate(); // <--- HINZUGEFÜGT
 
   const handleLogin = (e) => {
     e.preventDefault();
 
     if (email === "zookeeper@zoo.com" && password === "safari123") {
-      alert("Login erfolgreich! 🦓");
+      localStorage.setItem("user", JSON.stringify({ email })); // speichert User
       setError("");
-      // Hier könnte die Navigation zum Dashboard sein.
+      navigate("/");
     } else {
       setError("Ungültige E-Mail oder Passwort 🐾");
     }
