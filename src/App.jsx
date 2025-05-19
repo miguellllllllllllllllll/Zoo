@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from "/src/pages/LoginPage";
-import Homepage from "/src/pages/Homepage";
 import "./App.css";
 import Datenschutz from "./pages/Datenschutz";
+import LoginPage from "./pages/LoginPage";
+import Homepage from "./pages/Homepage";
 import Impressum from "./pages/Impressum";
 import Navbar from "./components/Navbar";
 import Ticket from "./pages/Ticket";

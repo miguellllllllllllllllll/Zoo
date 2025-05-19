@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 import { useTheme, useMediaQuery } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
 import {
@@ -124,6 +125,7 @@ export default function ZooNavbar() {
           {drawer}
         </Drawer>
       </Box>
+      <Outlet />
     </>
   );
 }
