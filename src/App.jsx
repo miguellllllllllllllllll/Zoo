@@ -1,6 +1,7 @@
 import "./App.css";
 import Homepage from "./pages/homepage";
 import Datenschutz from "./pages/Datenschutz";
+import Impressum from "./pages/Impressum";
 import Navbar from "./components/Navbar";
 import NoPage from "./pages/NoPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Navbar />}>
             <Route index element={<Homepage />} />
             <Route path="datenschutz" element={<Datenschutz />} />
+            <Route path="impressum" element={<Impressum />} />
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>

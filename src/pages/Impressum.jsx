@@ -1,7 +1,7 @@
 import "../App.css";
 import { Box } from "@mui/material";
 
-export default function () {
+export default function Impressum() {
   return (
     <Box>
       <h1>Kontakt</h1>

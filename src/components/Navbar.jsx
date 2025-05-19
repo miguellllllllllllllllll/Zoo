@@ -21,7 +21,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import PetsIcon from "@mui/icons-material/Pets";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
-import RuleIcon from "@mui/icons-material/Rule";
+import RuleIcon from "@mui/icons-material/Book";
 
 const navItems = [
   { text: "Home", icon: <HomeIcon />, href: "/" },
@@ -29,6 +29,7 @@ const navItems = [
   { text: "Fütterungszeiten", icon: <AccessTimeIcon />, href: "/zeiten" },
   { text: "Tickets", icon: <ConfirmationNumberIcon />, href: "/tickets" },
   { text: "Datenschutz", icon: <RuleIcon />, href: "/datenschutz" },
+  { text: "Impressum", icon: <RuleIcon />, href: "/impressum" },
 ];
 
 export default function ZooNavbar() {
