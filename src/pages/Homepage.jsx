@@ -1,5 +1,4 @@
 import "../App.css";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Button } from "@mui/material";
 import { Box } from "@mui/material";
@@ -8,9 +7,6 @@ import Main_Picture from "../assets/Homepage.jpg";
 function Homepage() {
   return (
     <div style={{ height: "100%" }}>
-      <header>
-        <Navbar />
-      </header>
       <main>
         <Box sx={{ position: "relative" }}>
           <Box
