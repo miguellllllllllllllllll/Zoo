@@ -3,8 +3,15 @@ import Footer from "../components/Footer";
 import { Button } from "@mui/material";
 import { Box } from "@mui/material";
 import Main_Picture from "../assets/Homepage.jpg";
+import { useNavigate } from "react-router-dom"; // <--- HINZUGEFÜGT
 
 function Homepage() {
+  const navigate = useNavigate();
+
+  function handleClick(event) {
+    event.preventDefault();
+    navigate("./Ticket");
+  }
   return (
     <div style={{ height: "100%" }}>
       <main>
@@ -25,7 +32,9 @@ function Homepage() {
               margin: "calc(4% - 10%) 0 0 0",
             }}
           >
-            <Button variant="contained">Tickets bestellen</Button>
+            <Button variant="contained" onClick={handleClick}>
+              Tickets bestellen
+            </Button>
           </Box>
         </Box>
       </main>
