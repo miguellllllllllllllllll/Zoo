@@ -1,5 +1,7 @@
+
 import React, { useEffect, useState } from "react";
 import { useTheme, useMediaQuery } from "@mui/material";
+import { Outlet, Link } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -21,6 +23,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import { useNavigate } from "react-router-dom";
 import Datenschutz from "../pages/Datenschutz.jsx";
+import RuleIcon from "@mui/icons-material/Book";
 
 // Navigationseinträge
 const navItems = [
@@ -29,6 +32,7 @@ const navItems = [
   { text: "Fütterungszeiten", icon: <AccessTimeIcon />, href: "/zeiten" },
   { text: "Tickets", icon: <ConfirmationNumberIcon />, href: "/tickets" },
   { text: "Datenschutz", icon: <Datenschutz />, href: "/datenschutz" },
+  { text: "Impressum", icon: <RuleIcon />, href: "/impressum" },
 ];
 
 export default function ZooNavbar() {
@@ -69,29 +73,16 @@ export default function ZooNavbar() {
   );
 
   return (
-    <Box sx={{ paddingTop: "64px" }}>
-      <AppBar position="absolute" color="success">
-        <Toolbar>
-          {isMobile && (
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={handleDrawerToggle}
-            >
-              <MenuIcon />
-            </IconButton>
-          )}
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            🦁 ZooApp
-          </Typography>
-          {!isMobile &&
-            navItems.map((item) => (
-              <Button
-                key={item.text}
+    <>
+      <Box sx={{ paddingTop: "64px" }}>
+        <AppBar position="absolute" color="success">
+          <Toolbar>
+            {isMobile && (
+              <IconButton
+                edge="start"
                 color="inherit"
-                startIcon={item.icon}
-                href={item.href}
+                aria-label="menu"
+                onClick={handleDrawerToggle}
               >
                 {item.text}
               </Button>

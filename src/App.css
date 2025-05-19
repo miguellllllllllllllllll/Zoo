@@ -2,8 +2,8 @@ body {
   overflow-x: hidden;
 }
 
-h1 {
-  color: white;
+.main-h1 {
+  /* color: white; */
   position: absolute;
   top: 10%;
   left: 50%;
