@@ -1,6 +1,7 @@
 function Datenschutz() {
   return (
     <main className="datenschutz-wrapper">
+      <h1>Datenschutz</h1>
       <section>
         <h2>1. Beim Aufruf unserer Webseite</h2>
         <p>
