@@ -28,7 +28,7 @@ const navItems = [
   { text: "Tiere", icon: <PetsIcon />, href: "/tiere" },
   { text: "Fütterungszeiten", icon: <AccessTimeIcon />, href: "/zeiten" },
   { text: "Ticket", icon: <ConfirmationNumberIcon />, href: "/ticket" },
-  { text: "Datenschutz", icon: <RuleIcon />, href: "/datenschutz" },
+  { text: "Datenschutz", icon: <PolicyIcon />, href: "/datenschutz" },
   { text: "Impressum", icon: <BookIcon />, href: "/impressum" },
 ];
 
